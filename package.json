@@ -1,0 +1,13 @@
+{
+  "name": "notenest-note-service",
+  "version": "1.0.0",
+  "description": "Serverless note management microservice for NoteNest",
+  "main": "handler.js",
+  "scripts": {
+    "start": "node handler.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1530.0",
+    "uuid": "^9.0.0"
+  }
+}
