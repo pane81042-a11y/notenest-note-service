@@ -11,7 +11,7 @@ exports.handler = async (event) => {
     try {
         switch(httpMethod) {
             case "POST":
-                return await createContext(JSON.parse(body));
+                return await createNote(JSON.parse(body));
             case "GET":
                 return await getNote(pathParameters.id);
             case "PUT":
