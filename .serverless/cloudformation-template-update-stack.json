@@ -65,6 +65,16 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/notenest-note-service-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:PutItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": "arn:aws:dynamodb:us-east-1:543453960196:table/NoteNestNotesTable"
                 }
               ]
             }
@@ -91,7 +101,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-70dc59f9-f6f1",
-          "S3Key": "serverless/notenest-note-service/dev/1770853160559-2026-02-11T23:39:20.559Z/notenest-note-service.zip"
+          "S3Key": "serverless/notenest-note-service/dev/1770853678193-2026-02-11T23:47:58.193Z/notenest-note-service.zip"
         },
         "Handler": "handler.handler",
         "Runtime": "nodejs20.x",
@@ -114,14 +124,14 @@
         "NotesLogGroup"
       ]
     },
-    "NotesLambdaVersionW4qcutjr4CjOqGLpublgIH8Wt8EAX41TCJtHPglzk": {
+    "NotesLambdaVersionmVN5Z26mi8cci8tM0NkQQqa6WYOPANTV2IScKsYqE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "NotesLambdaFunction"
         },
-        "CodeSha256": "k2kOWX6WEm9sogdBCJpInm6qg6PsWLgxzyykrTW7upc="
+        "CodeSha256": "/gHAZBT5N6G50ylmeGkXADoOWatF/Qs0yIYoIIJMzZk="
       }
     },
     "ApiGatewayRestApi": {
@@ -347,7 +357,7 @@
         "NotesLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1770853148805": {
+    "ApiGatewayDeployment1770853668773": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -429,7 +439,7 @@
     "NotesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "NotesLambdaVersionW4qcutjr4CjOqGLpublgIH8Wt8EAX41TCJtHPglzk"
+        "Ref": "NotesLambdaVersionmVN5Z26mi8cci8tM0NkQQqa6WYOPANTV2IScKsYqE"
       },
       "Export": {
         "Name": "sls-notenest-note-service-dev-NotesLambdaFunctionQualifiedArn"

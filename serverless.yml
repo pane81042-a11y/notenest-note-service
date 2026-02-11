@@ -6,6 +6,16 @@ provider:
   region: us-east-1
   environment:
     NOTES_TABLE: NoteNestNotesTable
+  
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - arn:aws:dynamodb:us-east-1:543453960196:table/NoteNestNotesTable
 
 functions:
   notes:
@@ -37,13 +47,3 @@ resources:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-
-iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:PutItem
-        - dynamodb:GetItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource:
-        - Fn::GetAtt: [NoteNestNotesTable, Arn]
