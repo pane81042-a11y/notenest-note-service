@@ -60,7 +60,11 @@ const updateNote = async (id, data) => {
             ":t": data.title,
             ":c": data.content,
         },
+        ConditionExpression: "attribute_exists(id)",
+        ReturnValues: "ALL_NEW"
     }).promise();
+
+    return response(200, result.Attributes);
 };
 
 const deleteNote = async (id) => {

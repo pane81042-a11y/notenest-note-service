@@ -101,7 +101,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-70dc59f9-f6f1",
-          "S3Key": "serverless/notenest-note-service/dev/1770853678193-2026-02-11T23:47:58.193Z/notenest-note-service.zip"
+          "S3Key": "serverless/notenest-note-service/dev/1770854100215-2026-02-11T23:55:00.215Z/notenest-note-service.zip"
         },
         "Handler": "handler.handler",
         "Runtime": "nodejs20.x",
@@ -124,14 +124,14 @@
         "NotesLogGroup"
       ]
     },
-    "NotesLambdaVersionmVN5Z26mi8cci8tM0NkQQqa6WYOPANTV2IScKsYqE": {
+    "NotesLambdaVersion6j2JdTNAFQXp7cGRE3sDZhSHmzMLgtbuk2wROtB23xA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "NotesLambdaFunction"
         },
-        "CodeSha256": "/gHAZBT5N6G50ylmeGkXADoOWatF/Qs0yIYoIIJMzZk="
+        "CodeSha256": "feEfC0yD8SOY5rJI6c5krclKRhHHYJEMHA8GVDaKE90="
       }
     },
     "ApiGatewayRestApi": {
@@ -357,7 +357,7 @@
         "NotesLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1770853668773": {
+    "ApiGatewayDeployment1770854084639": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -439,7 +439,7 @@
     "NotesLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "NotesLambdaVersionmVN5Z26mi8cci8tM0NkQQqa6WYOPANTV2IScKsYqE"
+        "Ref": "NotesLambdaVersion6j2JdTNAFQXp7cGRE3sDZhSHmzMLgtbuk2wROtB23xA"
       },
       "Export": {
         "Name": "sls-notenest-note-service-dev-NotesLambdaFunctionQualifiedArn"
