@@ -52,19 +52,26 @@ const getNote = async (id) => {
 };
 
 const updateNote = async (id, data) => {
-    await dynamodb.update({
-        TableName: TABLE_NAME,
-        Key: { id },
-        UpdateExpression: "set title = :t, content = :c",
-        ExpressionAttributeValues: {
-            ":t": data.title,
-            ":c": data.content,
-        },
-        ConditionExpression: "attribute_exists(id)",
-        ReturnValues: "ALL_NEW"
-    }).promise();
+    try {
+        const result = await dynamodb.update({
+            TableName: TABLE_NAME,
+            Key: { id },
+            UpdateExpression: "set title = :t, content = :c",
+            ExpressionAttributeValues: {
+                ":t": data.title,
+                ":c": data.content,
+            },
+            ConditionExpression: "attribute_exists(id)",
+            ReturnValues: "ALL_NEW"
+        }).promise();
 
-    return response(200, result.Attributes);
+        return response(200, result.Attributes);
+
+    } catch (error) {
+        return response(404, {
+            message: "Note not found"
+        });
+    }
 };
 
 const deleteNote = async (id) => {
