@@ -15,7 +15,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - arn:aws:dynamodb:us-east-1:543453960196:table/NoteNestNotesTable
+        - Fn::GetAtt: [NoteNestNotesTable, Arn]
 
 functions:
   notes:
